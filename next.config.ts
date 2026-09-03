@@ -95,6 +95,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+  // The chatbot's knowledge file is read with fs at server start (not imported),
+  // so force it into the /api/chat function's trace or deployment would omit it.
+  outputFileTracingIncludes: {
+    "/api/chat": ["./data/company-knowledge.md"],
+  },
   // Produces a minimal, self-contained server bundle (`.next/standalone`) for the Docker
   // image (see Dockerfile). Vercel ignores this and uses its own builder either way, so it's
   // safe to leave on for both deployment paths.

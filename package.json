@@ -13,7 +13,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:land-dots": "node scripts/generate-land-dots.mjs"
+    "generate:land-dots": "node scripts/generate-land-dots.mjs",
+    "build:knowledge": "node scripts/build-knowledge.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
@@ -41,6 +42,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/topojson-client": "^3.1.5",
+    "cheerio": "^1.2.0",
     "d3-geo": "^3.1.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
