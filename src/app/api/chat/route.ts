@@ -79,7 +79,15 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
           contents,
-          generationConfig: { maxOutputTokens: 800, temperature: 0.4 },
+          generationConfig: {
+            // gemini-flash-latest resolves to a "thinking" model whose hidden
+            // reasoning counts against maxOutputTokens — with a small budget it
+            // can spend everything thinking and stream back zero visible text.
+            // Disable thinking (site Q&A doesn't need it) and keep headroom.
+            maxOutputTokens: 1024,
+            temperature: 0.4,
+            thinkingConfig: { thinkingBudget: 0 },
+          },
         }),
       }
     );
