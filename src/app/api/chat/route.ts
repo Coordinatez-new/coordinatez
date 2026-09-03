@@ -82,9 +82,11 @@ export async function POST(request: Request) {
           generationConfig: {
             // gemini-flash-latest resolves to a "thinking" model whose hidden
             // reasoning counts against maxOutputTokens — with a small budget it
-            // can spend everything thinking and stream back zero visible text.
-            // Disable thinking (site Q&A doesn't need it) and keep headroom.
-            maxOutputTokens: 1024,
+            // spends everything thinking and streams little or no visible text.
+            // Some versions ignore thinkingBudget:0, so the ceiling must leave
+            // real headroom either way. Replies stay short by prompt instruction;
+            // the cap is a safety ceiling, not a target.
+            maxOutputTokens: 4096,
             temperature: 0.4,
             thinkingConfig: { thinkingBudget: 0 },
           },
