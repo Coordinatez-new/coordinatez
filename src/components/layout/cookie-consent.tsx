@@ -4,22 +4,33 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
-const STORAGE_KEY = "coordinatez-cookie-consent";
+import {
+  CONSENT_OPEN_EVENT,
+  hasGlobalPrivacyControl,
+  readConsent,
+  writeConsent,
+  type ConsentChoice,
+} from "@/lib/consent";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // localStorage doesn't exist during SSR, so this decision can only be made
-    // post-mount — an effect is the correct (not just convenient) tool here.
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    // localStorage and the GPC signal don't exist during SSR, so this decision can only be
+    // made post-mount — an effect is the correct (not just convenient) tool here. A visitor
+    // sending Global Privacy Control has already opted out, so we honor it silently instead
+    // of asking; AnalyticsScripts keeps every non-essential tag off either way.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (!stored) setVisible(true);
+    if (!readConsent() && !hasGlobalPrivacyControl()) setVisible(true);
+
+    // The footer's "Cookie preferences" link reopens the banner so a choice can be changed.
+    const reopen = () => setVisible(true);
+    window.addEventListener(CONSENT_OPEN_EVENT, reopen);
+    return () => window.removeEventListener(CONSENT_OPEN_EVENT, reopen);
   }, []);
 
-  function respond(value: "accepted" | "declined") {
-    window.localStorage.setItem(STORAGE_KEY, value);
+  function respond(value: ConsentChoice) {
+    writeConsent(value);
     setVisible(false);
   }
 
@@ -36,11 +47,17 @@ export function CookieConsent() {
           aria-label="Cookie consent"
         >
           <p className="text-sm text-muted-foreground">
-            We use cookies to improve your experience and analyze site traffic. Read our{" "}
-            <Link href="/privacy-policy" className="text-primary underline underline-offset-4">
+            We use cookies that are necessary to run this site, and — only if you accept —
+            analytics and advertising cookies from Google, Meta, LinkedIn, and Microsoft that
+            help us measure how the site and our campaigns perform. Decline and none of them
+            load. See our{" "}
+            <Link
+              href="/privacy-policy#cookies"
+              className="text-primary underline underline-offset-4"
+            >
               Privacy Policy
             </Link>{" "}
-            to learn more.
+            for the details.
           </p>
           <div className="mt-4 flex justify-end gap-2">
             <Button variant="outline" size="sm" onClick={() => respond("declined")}>

@@ -89,7 +89,8 @@ export default function PrivacyPolicyPage() {
                 We collect information you choose to give us. When you submit our contact form,
                 this may include your name, company, email address, phone number, country, and
                 the message you write. When you submit our careers form, this may additionally
-                include the position you are interested in and the resume file you upload.
+                include the position you are interested in and a link to your resume or
+                portfolio.
               </p>
               <p>
                 When you message us on WhatsApp, we receive your phone number and WhatsApp profile
@@ -144,10 +145,11 @@ export default function PrivacyPolicyPage() {
 
             <PolicySection title="3. How form submissions are delivered">
               <p>
-                When you submit a form on the Site, your submission is delivered to our team by
-                email through a third-party SMTP (email delivery) provider. The provider processes
-                the submission solely to transmit it to us and is not permitted to use it for its
-                own purposes.
+                Our contact and careers forms are submitted to Formspree, Inc., a third-party form
+                backend that receives the submission, stores it in our account, and emails it to
+                our team mailbox. Formspree processes submissions on our instructions, as our
+                processor, and is not permitted to use them for its own purposes. Notification and
+                confirmation emails are sent through our email provider.
               </p>
             </PolicySection>
 
@@ -301,16 +303,27 @@ export default function PrivacyPolicyPage() {
             <PolicySection title="7. Analytics and marketing tags">
               <p>
                 The Site may use optional analytics and marketing tools — Google Analytics 4,
-                Microsoft Clarity, and Meta and LinkedIn tags — to understand how visitors use the
-                Site and to measure the effectiveness of our outreach. These tools are loaded only
-                when they are enabled for the Site, and where a cookie-consent mechanism is
-                presented, your consent choices are honored before any non-essential cookies or
-                tracking are activated.
+                Google Tag Manager, Microsoft Clarity, and Meta and LinkedIn tags — to understand
+                how visitors use the Site and to measure the effectiveness of our outreach. These
+                are non-essential, and none of them is loaded until you press{" "}
+                <strong className="font-medium text-foreground">Accept</strong> on our consent
+                banner. If you decline, or simply ignore the banner, those scripts are never
+                requested and no analytics or advertising identifiers are set. We also honor the
+                Global Privacy Control (GPC) signal where your browser sends one, and treat it as
+                a decline without asking.
               </p>
               <p>
-                Each of these providers processes data under its own privacy policy. You can
-                manage or withdraw cookie consent at any time through your browser settings or the
-                Site&apos;s consent controls where available.
+                Strictly necessary cookies and storage — the record of your own consent choice,
+                your theme preference, and the token Cloudflare Turnstile uses to tell a person
+                apart from a bot on our forms — are always active and cannot be switched off.
+              </p>
+              <p>
+                Each analytics and advertising provider processes data under its own privacy
+                policy. You can change or withdraw your choice at any time using the{" "}
+                <strong className="font-medium text-foreground">Cookie preferences</strong> link
+                in the Site footer, which reopens the banner, or by clearing this site&apos;s
+                cookies and storage in your browser. Withdrawing consent stops any further
+                collection; it does not undo processing that already happened lawfully.
               </p>
             </PolicySection>
 
