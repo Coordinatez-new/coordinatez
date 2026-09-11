@@ -1,16 +1,26 @@
-import Script from "next/script";
+"use client";
 
-// Every integration here is strictly opt-in: it only renders if its NEXT_PUBLIC_* env var
-// is set (see .env.example). Nothing loads — and no third-party request is made — until
-// you add the real ID. This keeps the site's CSP, performance, and privacy posture clean
-// by default, and avoids ever shipping a placeholder/fake tracking ID.
+import Script from "next/script";
+import { useConsent } from "@/lib/consent";
+
+// Every integration here is doubly opt-in.
+// 1. It only renders if its NEXT_PUBLIC_* env var is set (see .env.example), so nothing
+//    loads until a real ID is configured — no placeholder/fake tracking IDs ever ship.
+// 2. Nothing renders until the visitor ACCEPTS in the cookie banner. Analytics and
+//    advertising tags are non-essential, and the privacy policy (section 4) promises they
+//    are never requested before consent — Meta's Business Tools terms and Google's EU user
+//    consent policy require the same. Declining, ignoring the banner, or sending a Global
+//    Privacy Control signal all leave this component rendering nothing.
 export function AnalyticsScripts() {
+  const consent = useConsent();
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const linkedInPartnerId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
+
+  if (consent !== "accepted") return null;
 
   return (
     <>

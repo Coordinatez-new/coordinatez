@@ -16,6 +16,7 @@ const socialIconMap = {
   instagram: { label: "Instagram", Icon: InstagramIcon },
   github: { label: "GitHub", Icon: GitHubIcon },
 } as const;
+import { CookiePreferencesLink } from "@/components/layout/cookie-preferences-link";
 import { footerNav } from "@/data/nav";
 import { siteConfig } from "@/data/site";
 
@@ -156,7 +157,7 @@ export function Footer() {
               </a>
             </span>
           </p>
-          <nav aria-label="Legal" className="flex gap-6">
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-6 gap-y-2">
             {footerNav.legal.map((item) => (
               <Link
                 key={item.href}
@@ -166,6 +167,10 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
+            {/* Changing or withdrawing cookie consent has to be reachable from every page.
+                It lives here rather than in nav.ts because it reopens the consent banner
+                instead of navigating anywhere. */}
+            <CookiePreferencesLink className="text-xs text-[var(--ink-panel-muted)] transition-colors hover:text-white" />
           </nav>
         </Container>
       </div>

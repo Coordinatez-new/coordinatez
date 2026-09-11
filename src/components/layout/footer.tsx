@@ -16,6 +16,7 @@ const socialIconMap = {
   instagram: { label: "Instagram", Icon: InstagramIcon },
   github: { label: "GitHub", Icon: GitHubIcon },
 } as const;
+import { CookiePreferencesLink } from "@/components/layout/cookie-preferences-link";
 import { footerNav } from "@/data/nav";
 import { siteConfig } from "@/data/site";
 
@@ -90,6 +91,14 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                {/* Withdrawing or changing cookie consent has to be reachable from every
+                    page — it sits with the legal links rather than in nav.ts because it
+                    reopens the banner instead of navigating anywhere. */}
+                {column.title === "Legal" && (
+                  <li>
+                    <CookiePreferencesLink className="text-sm text-[var(--ink-panel-foreground)]/80 transition-colors hover:text-white" />
+                  </li>
+                )}
               </ul>
             </nav>
           ))}
