@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Terms & Conditions",
   description:
-    "Terms and conditions governing the use of coordinatez.com — website use, intellectual property, informational nature of content, limitation of liability, third-party links, and governing law.",
+    "Terms and conditions governing the use of coordinatez.com and the Coordinatez applications — the services we provide, acceptable use, intellectual property, informational nature of content, disclaimer of warranties, limitation of liability, termination, and governing law (Illinois, USA).",
   path: "/terms-and-conditions",
 });
 
@@ -53,25 +53,63 @@ export default function TermsAndConditionsPage() {
               Terms &amp; Conditions
             </h1>
             <p className="mt-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-              Last updated: July 22, 2026
+              Effective date: September 11, 2026 · Last updated: September 12, 2026
             </p>
             <p className="mt-8 text-pretty text-lg leading-relaxed text-muted-foreground">
               These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your access to and use of
-              coordinatez.com (the &ldquo;Site&rdquo;), operated by {siteConfig.name}. By
-              accessing or using the Site, you agree to be bound by these Terms. If you do not
-              agree, please do not use the Site.
+              coordinatez.com (the &ldquo;Site&rdquo;) and the Coordinatez applications described
+              below (together, the &ldquo;Services&rdquo;), operated by {siteConfig.name}. By
+              accessing or using the Services, you agree to be bound by these Terms. If you do
+              not agree, please do not use them.
             </p>
 
-            <TermsSection title="1. Use of the Site">
+            <TermsSection title="1. The services we provide">
               <p>
-                You may use the Site for lawful purposes only. You agree not to interfere with the
-                Site&apos;s operation, attempt to gain unauthorized access to any systems or data,
-                submit false or misleading information through our forms, or use automated means
-                to scrape or overload the Site.
+                {siteConfig.name} is an IT services and AI solutions company. The Site publishes
+                information about our technology and AI practice, our locations, our published
+                insights, and our open roles, and it provides contact and career forms you can use
+                to reach us.
+              </p>
+              <p>
+                Alongside the Site we operate a small number of applications for clients and
+                prospective clients: an assistant that answers questions in the chat widget and on
+                our WhatsApp business line, and a YouTube publishing tool that uploads and manages
+                video content on a channel you connect and authorize through Google. Access to
+                these applications is provided as-is, at our discretion, and may be changed or
+                withdrawn. Paid engagements are governed by a separate signed agreement, not by
+                these Terms.
               </p>
             </TermsSection>
 
-            <TermsSection title="2. Informational content — not an offer or advice">
+            <TermsSection title="2. Acceptable use">
+              <p>
+                You may use the Services for lawful purposes only. You agree not to interfere with
+                their operation, attempt to gain unauthorized access to any systems or data,
+                submit false or misleading information through our forms, or use automated means
+                to scrape or overload them.
+              </p>
+              <p>You further agree not to:</p>
+              <ul className="space-y-2.5">
+                {[
+                  "Use the Services to send unlawful, abusive, harassing, defamatory, deceptive, or infringing content, or to upload video content you do not have the rights to publish.",
+                  "Attempt to probe, scan, or test the vulnerability of our systems, or to circumvent our authentication, rate limiting, or bot protection.",
+                  "Use our AI assistant to generate or distribute unlawful content, to impersonate another person, or to extract our underlying prompts, models, or credentials.",
+                  "Connect a Google or YouTube account you are not authorized to control, or use our publishing tool in breach of the YouTube Terms of Service.",
+                  "Resell, sublicense, or provide the Services to third parties as your own without our written agreement.",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span aria-hidden className="mt-[0.75rem] h-px w-4 shrink-0 bg-brand-sky" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p>
+                You are responsible for activity carried out through any account or authorization
+                you grant us, and for keeping your own credentials secure.
+              </p>
+            </TermsSection>
+
+            <TermsSection title="3. Informational content — not an offer or advice">
               <p>
                 The content on this Site is provided for general informational purposes only. It
                 does not constitute professional, legal, financial, investment, or trading advice,
@@ -87,7 +125,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="3. Intellectual property">
+            <TermsSection title="4. Intellectual property">
               <p>
                 The Site and its content — including text, graphics, logos, page designs, and
                 original articles — are the property of {siteConfig.name} or its licensors and are
@@ -97,7 +135,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="4. Submissions">
+            <TermsSection title="5. Submissions">
               <p>
                 Information you submit through our contact and career forms is handled as
                 described in our{" "}
@@ -113,7 +151,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="5. Disclaimer of warranties">
+            <TermsSection title="6. Disclaimer of warranties">
               <p>
                 The Site is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo;
                 basis. To the fullest extent permitted by law, {siteConfig.name} disclaims all
@@ -124,7 +162,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="6. Limitation of liability">
+            <TermsSection title="7. Limitation of liability">
               <p>
                 To the fullest extent permitted by law, {siteConfig.name} and its officers,
                 employees, and agents will not be liable for any indirect, incidental,
@@ -136,7 +174,35 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="7. Third-party links">
+            <TermsSection title="8. Termination">
+              <p>
+                You may stop using the Services at any time. If you have connected a Google or
+                YouTube account, you can end that connection yourself by revoking our access in
+                your Google account settings, and you can ask us to delete the data we hold as
+                described in our{" "}
+                <Link
+                  href="/privacy-policy#data-deletion"
+                  className="font-medium text-brand-royal transition-colors hover:text-brand-sky dark:text-brand-sky"
+                >
+                  Privacy Policy
+                </Link>
+                . To stop receiving WhatsApp messages, reply STOP or block the number.
+              </p>
+              <p>
+                We may suspend or terminate your access to the Services, in whole or in part and
+                without notice, if we reasonably believe you have breached these Terms, if your
+                use puts our systems, other users, or a third-party platform at risk, or if we are
+                required to do so by law or by a platform we depend on. We may also discontinue
+                any part of the Services.
+              </p>
+              <p>
+                Termination does not affect rights or obligations that accrued beforehand. The
+                sections on intellectual property, disclaimer of warranties, limitation of
+                liability, and governing law survive termination.
+              </p>
+            </TermsSection>
+
+            <TermsSection title="9. Third-party links">
               <p>
                 The Site may contain links to third-party websites or services that we do not own
                 or control. We are not responsible for their content, policies, or practices, and
@@ -144,7 +210,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="8. Changes to the Site and these Terms">
+            <TermsSection title="10. Changes to the Services and these Terms">
               <p>
                 We may modify, suspend, or discontinue any part of the Site at any time. We may
                 also revise these Terms from time to time; the &ldquo;Last updated&rdquo; date
@@ -153,7 +219,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="9. Governing law">
+            <TermsSection title="11. Governing law">
               <p>
                 These Terms are governed by and construed in accordance with the laws of the State
                 of Illinois, United States of America, without regard to its conflict-of-law
@@ -163,7 +229,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </TermsSection>
 
-            <TermsSection title="10. Contact">
+            <TermsSection title="12. Contact">
               <p>
                 Questions about these Terms can be sent to{" "}
                 <a
