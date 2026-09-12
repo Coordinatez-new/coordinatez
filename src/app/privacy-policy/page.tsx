@@ -155,11 +155,11 @@ export default function PrivacyPolicyPage() {
 
             <PolicySection title="4. WhatsApp and messaging">
               <p>
-                You can reach us on WhatsApp at {phone}, including through the WhatsApp button on
-                the Site. Messages are carried over the WhatsApp Business Platform, operated by
-                Meta Platforms, Inc., which delivers them to us and processes them under its own
-                privacy policy. Once a message reaches our systems, we hold it under the practices
-                described in this policy.
+                We operate a WhatsApp Business account. You can reach us on WhatsApp at {phone},
+                including through the WhatsApp button on the Site. Messages are carried over the
+                WhatsApp Business Platform, operated by Meta Platforms, Inc., which delivers them
+                to us and processes them under its own terms and privacy policy. Once a message
+                reaches our systems, we hold it under the practices described in this policy.
               </p>
               <p>
                 Conversations are handled by our team and, where relevant, by the service
@@ -174,9 +174,8 @@ export default function PrivacyPolicyPage() {
                 we keep it.
               </p>
               <p>
-                You can stop receiving messages from us at any time by replying{" "}
-                <strong className="font-medium text-foreground">STOP</strong>, or by blocking the
-                number in WhatsApp. To have the conversation deleted as well, see{" "}
+                You can stop receiving messages from us at any time, and you can have the
+                conversation deleted as well. Both are covered under{" "}
                 <Link
                   href="#data-deletion"
                   className="font-medium text-brand-royal transition-colors hover:text-brand-sky dark:text-brand-sky"
@@ -300,7 +299,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </PolicySection>
 
-            <PolicySection title="7. Analytics and marketing tags">
+            <PolicySection id="cookies" title="7. Analytics and marketing tags">
               <p>
                 The Site may use optional analytics and marketing tools — Google Analytics 4,
                 Google Tag Manager, Microsoft Clarity, and Meta and LinkedIn tags — to understand
@@ -372,7 +371,8 @@ export default function PrivacyPolicyPage() {
                 message in the conversation, so we can pick up a thread you return to. Where a
                 message forms part of a transaction record we are required to retain — for
                 example under tax or trade rules — we keep that record for as long as the law
-                requires. Backups are purged on a rolling basis.
+                requires, which is typically seven years for export and tax documents. Backups are
+                purged on a rolling basis.
               </p>
               <p>
                 Google authorization tokens and the Google account details described in section 6
@@ -402,15 +402,16 @@ export default function PrivacyPolicyPage() {
             <PolicySection id="data-deletion" title="12. Deleting your data">
               <p>
                 You can ask us at any time to show you, correct, or delete the personal
-                information we hold about you, or to stop messaging you. To request deletion,
-                either:
+                information we hold about you, or to stop messaging you.
               </p>
-              <PolicyList
-                items={[
-                  "Message DELETE MY DATA to the same WhatsApp number you contacted us on, or",
-                  "Email us from the address — or about the phone number — you used with us, and tell us what you would like removed.",
-                ]}
-              />
+              <p>
+                If you have contacted us on WhatsApp you can also exercise these rights from the
+                chat itself. Reply with DELETE MY DATA to the same WhatsApp number you messaged
+                and we will delete the personal data we hold about you, except records we are
+                legally required to keep. We will confirm within seven days and complete deletion
+                within 30 days. To stop receiving messages from us, reply with STOP or block the
+                number in WhatsApp.
+              </p>
               <p>
                 Send email requests to{" "}
                 <a
@@ -419,9 +420,11 @@ export default function PrivacyPolicyPage() {
                 >
                   {contactEmail}
                 </a>
-                . We will confirm your request within 7 days and complete the deletion within 30
-                days, except for records we are legally required to keep — if that applies to any
-                part of your request, we will tell you which records and why. To stop receiving
+                , from the address — or about the phone number — you used with us, telling us
+                what you would like removed. If any part of your request covers records we are
+                legally required to keep, we will tell you which records and why.
+              </p>
+              <p>
                 To delete data associated with a connected Google or YouTube account, revoke our
                 access on Google&apos;s{" "}
                 <a
@@ -432,10 +435,7 @@ export default function PrivacyPolicyPage() {
                 >
                   third-party access
                 </a>{" "}
-                page and email us to have the stored tokens and account details removed. To stop
-                receiving messages without deleting your history, reply{" "}
-                <strong className="font-medium text-foreground">STOP</strong> or block the number
-                in WhatsApp.
+                page and email us to have the stored tokens and account details removed.
               </p>
             </PolicySection>
 
