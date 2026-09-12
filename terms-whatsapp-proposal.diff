@@ -1,0 +1,105 @@
+diff --git a/src/app/terms-and-conditions/page.tsx b/src/app/terms-and-conditions/page.tsx
+index 35f200f..c554925 100644
+--- a/src/app/terms-and-conditions/page.tsx
++++ b/src/app/terms-and-conditions/page.tsx
+@@ -93,6 +93,7 @@ export default function TermsAndConditionsPage() {
+                 {[
+                   "Use the Services to send unlawful, abusive, harassing, defamatory, deceptive, or infringing content, or to upload video content you do not have the rights to publish.",
+                   "Attempt to probe, scan, or test the vulnerability of our systems, or to circumvent our authentication, rate limiting, or bot protection.",
++                  "Send us other people's personal information without a lawful basis, or send confidential material you are not authorised to share.",
+                   "Use our AI assistant to generate or distribute unlawful content, to impersonate another person, or to extract our underlying prompts, models, or credentials.",
+                   "Connect a Google or YouTube account you are not authorized to control, or use our publishing tool in breach of the YouTube Terms of Service.",
+                   "Resell, sublicense, or provide the Services to third parties as your own without our written agreement.",
+@@ -123,6 +124,16 @@ export default function TermsAndConditionsPage() {
+                 relevant counterparty. In the event of any conflict between Site content and a
+                 signed agreement, the signed agreement controls.
+               </p>
++              <p>
++                Some replies you receive from us — including messages from our WhatsApp assistant
++                and the chat assistant on the Site — are generated automatically by an AI language
++                model. Automated replies are provided for convenience, may be incomplete or
++                inaccurate, and do not constitute advice, a quotation, or an offer capable of
++                acceptance. Nothing an automated reply says binds {siteConfig.name}. You can ask
++                for a person at any point by writing{" "}
++                <strong className="font-medium text-foreground">agent</strong> or{" "}
++                <strong className="font-medium text-foreground">human</strong>.
++              </p>
+             </TermsSection>
+ 
+             <TermsSection title="4. Intellectual property">
+@@ -137,8 +148,8 @@ export default function TermsAndConditionsPage() {
+ 
+             <TermsSection title="5. Submissions">
+               <p>
+-                Information you submit through our contact and career forms is handled as
+-                described in our{" "}
++                Information you submit through our contact and career forms, and the messages
++                and attachments you send us on WhatsApp, are handled as described in our{" "}
+                 <Link
+                   href="/privacy-policy"
+                   className="font-medium text-brand-royal transition-colors hover:text-brand-sky dark:text-brand-sky"
+@@ -146,19 +157,32 @@ export default function TermsAndConditionsPage() {
+                   Privacy Policy
+                 </Link>
+                 . You are responsible for the accuracy of the information you provide, and you
+-                confirm that you have the right to share any materials (such as a resume) that you
+-                upload.
++                confirm that you have the right to share any materials or documents you send us.
++              </p>
++              <p>
++                Do not send us payment card details. Your mobile carrier&apos;s message and data
++                rates may apply to WhatsApp messages. You can stop receiving messages from us, or
++                ask us to delete a conversation, as described in our{" "}
++                <Link
++                  href="/privacy-policy#data-deletion"
++                  className="font-medium text-brand-royal transition-colors hover:text-brand-sky dark:text-brand-sky"
++                >
++                  Privacy Policy
++                </Link>
++                .
+               </p>
+             </TermsSection>
+ 
+             <TermsSection title="6. Disclaimer of warranties">
+               <p>
+-                The Site is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo;
+-                basis. To the fullest extent permitted by law, {siteConfig.name} disclaims all
+-                warranties, express or implied, including warranties of merchantability, fitness
+-                for a particular purpose, and non-infringement. We do not warrant that the Site
+-                will be uninterrupted, error-free, or free of harmful components, or that its
+-                content is complete, accurate, or current at all times.
++                The Services are provided on an &ldquo;as is&rdquo; and &ldquo;as
++                available&rdquo; basis. To the fullest extent permitted by law,{" "}
++                {siteConfig.name} disclaims all warranties, express or implied, including
++                warranties of merchantability, fitness for a particular purpose, and
++                non-infringement. We do not warrant that the Services will be uninterrupted,
++                error-free, or free of harmful components, that any message will be delivered or
++                answered within a particular time, or that their content — including automated
++                replies — is complete, accurate, or current at all times.
+               </p>
+             </TermsSection>
+ 
+@@ -168,8 +192,8 @@ export default function TermsAndConditionsPage() {
+                 employees, and agents will not be liable for any indirect, incidental,
+                 consequential, special, or punitive damages — including lost profits, lost data,
+                 or business interruption — arising out of or relating to your use of, or inability
+-                to use, the Site or its content, even if advised of the possibility of such
+-                damages. Nothing in these Terms excludes liability that cannot be excluded under
++                to use, the Services or their content, including any reliance on an automated
++                reply, even if advised of the possibility of such damages. Nothing in these Terms excludes liability that cannot be excluded under
+                 applicable law.
+               </p>
+             </TermsSection>
+@@ -212,9 +236,9 @@ export default function TermsAndConditionsPage() {
+ 
+             <TermsSection title="10. Changes to the Services and these Terms">
+               <p>
+-                We may modify, suspend, or discontinue any part of the Site at any time. We may
+-                also revise these Terms from time to time; the &ldquo;Last updated&rdquo; date
+-                above reflects the most recent version. Your continued use of the Site after
++                We may modify, suspend, or discontinue any part of the Services at any time. We
++                may also revise these Terms from time to time; the &ldquo;Last updated&rdquo; date
++                above reflects the most recent version. Your continued use of the Services after
+                 revised Terms take effect constitutes acceptance of the revision.
+               </p>
+             </TermsSection>
