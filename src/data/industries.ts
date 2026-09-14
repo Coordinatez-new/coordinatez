@@ -15,6 +15,7 @@ export const industries: Industry[] = [
       "Production and inventory software",
       "Quality and compliance dashboards",
       "Machine and process data analytics",
+      "Robotic cell integration and machine vision",
     ],
   },
   {
@@ -26,6 +27,7 @@ export const industries: Industry[] = [
       "Shipment-tracking portals",
       "Documentation automation",
       "Freight and route dashboards",
+      "Warehouse robot fleet integration",
     ],
   },
   {

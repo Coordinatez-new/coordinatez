@@ -94,7 +94,7 @@ export default function TechnologyPage() {
 
           {/* capability categories */}
           <RevealOnScroll delay={0.12}>
-            <dl className="mt-14 grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-4">
+            <dl className="mt-14 grid gap-px overflow-hidden rounded-xl border bg-border lg:grid-cols-5">
               {serviceCategories.map((category, i) => (
                 <div key={category.id} className="bg-card p-5">
                   <dt className="flex items-baseline gap-2">

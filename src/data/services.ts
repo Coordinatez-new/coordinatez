@@ -7,7 +7,7 @@ export type Service = {
   title: string;
   /** Short label used in nav/cards. */
   navLabel: string;
-  category: "Build" | "Intelligence" | "Scale" | "Grow";
+  category: "Build" | "Intelligence" | "Scale" | "Grow" | "Robotics";
   description: string;
   /** <title> for the dedicated landing page. */
   metaTitle: string;
@@ -29,6 +29,7 @@ export type Service = {
 export const serviceCategories = [
   { id: "Build", label: "Build", note: "Product & platform engineering" },
   { id: "Intelligence", label: "Intelligence", note: "AI, data & machine learning" },
+  { id: "Robotics", label: "Robotics", note: "Robot software, vision & integration" },
   { id: "Scale", label: "Scale", note: "Cloud, APIs & automation" },
   { id: "Grow", label: "Grow", note: "Marketing & search visibility" },
 ] as const;
@@ -264,7 +265,7 @@ export const services: Service[] = [
           "We start with the smallest version that proves value — often a focused pilot around one workflow — then extend from there. Ruthless scoping up front is what keeps custom software affordable and on-time.",
       },
     ],
-    related: ["web-development", "api-development", "cloud-solutions"],
+    related: ["web-development", "api-development", "cloud-solutions", "robotics-software"],
   },
   {
     id: "web-development",
@@ -438,7 +439,7 @@ export const services: Service[] = [
           "Both, matched to the job. Tools like n8n, Make, and Zapier are fast and cost-effective for standard integrations; custom services make sense for complex logic or high volume. We choose based on reliability and total cost, not ideology.",
       },
     ],
-    related: ["ai-agents", "ai-integration", "api-development"],
+    related: ["ai-agents", "ai-integration", "api-development", "industrial-automation"],
   },
   {
     id: "data-analytics",
@@ -496,7 +497,7 @@ export const services: Service[] = [
           "Yes. A clean, governed data model is exactly what predictive models need. Good analytics work pays off immediately in better reporting and again later if you choose to build forecasting or ML on top of it.",
       },
     ],
-    related: ["machine-learning", "ai-integration", "business-automation"],
+    related: ["machine-learning", "ai-integration", "business-automation", "warehouse-robotics"],
   },
   {
     id: "machine-learning",
@@ -554,7 +555,7 @@ export const services: Service[] = [
           "We'll tell you. Plenty of problems are solved better and cheaper by good analytics or a clear rule. We'd rather recommend the simpler solution and keep your trust than sell an ML project that shouldn't exist.",
       },
     ],
-    related: ["data-analytics", "ai-integration", "ai-agents"],
+    related: ["data-analytics", "ai-integration", "ai-agents", "robotic-vision"],
   },
   {
     id: "cloud-solutions",
@@ -787,6 +788,265 @@ export const services: Service[] = [
       },
     ],
     related: ["digital-marketing", "web-development", "data-analytics"],
+  },
+  {
+    id: "robotics-software",
+    slug: "robotics-software",
+    title: "Robotics Software & Control Systems",
+    navLabel: "Robotics Software",
+    category: "Robotics",
+    description:
+      "Application, control, and simulation software for robots — ROS 2 stacks, task logic, and the operator tooling that makes a cell usable by the people running it.",
+    metaTitle: "Robotics Software Development | Coordinatez Technology",
+    metaDescription:
+      "Robotics software development — ROS 2 application and control stacks, motion planning, simulation, and operator interfaces. Hardware-neutral engineering from Chicago and our India development center.",
+    keywords: [
+      "robotics software development",
+      "ROS 2 development company",
+      "robot control software",
+      "robotics simulation services",
+      "custom robotics software",
+    ],
+    intro: [
+      "Robotics software is the layer between a robot that can move and a robot that does useful work. The arm, the drive base, and the controller usually arrive capable. What's missing is everything around them: the task logic, the recovery behavior when a part arrives misplaced, the interface the operator actually touches, and the integration that tells the robot what today's production order is.",
+      "Coordinatez builds that layer. We work in ROS 2 and vendor SDKs, validate behavior in simulation before anything runs on real hardware, and treat the operator interface as a deliverable rather than a debug screen that shipped by accident. Our robotics practice is new; the engineering discipline behind it — testing, CI, observability, code another team can pick up — is not.",
+    ],
+    problem:
+      "Robot hardware arrives capable but inert. The gap between a working demo and a cell that runs an unattended shift is task logic, error recovery, and operator tooling — and that is exactly where most robotics projects stall.",
+    solution:
+      "We build the application and control layer in ROS 2 or the vendor SDK, prove it in simulation before hardware time is spent, and ship it with the operator interface, logging, and integration hooks needed to actually run it in production.",
+    technologies: ["ROS 2", "Python", "C++", "Gazebo / Isaac Sim", "MoveIt", "OPC UA / MQTT", "Docker"],
+    benefits: [
+      "Behavior validated in simulation before hardware time is spent",
+      "Operator interfaces designed for the shop floor, not the lab",
+      "Error and recovery paths specified up front, not patched after",
+      "Documented, tested code — handover to your own team stays possible",
+    ],
+    useCases: [
+      "Pick-and-place task logic for a new or re-purposed cell",
+      "Motion planning and collision avoidance in constrained workspaces",
+      "Operator HMI and teach interfaces",
+      "Simulation environments for testing ahead of commissioning",
+      "Robot and cell telemetry logged into your existing dashboards",
+    ],
+    faqs: [
+      {
+        question: "Do you supply the robot hardware?",
+        answer:
+          "No. We work with the robot you have chosen, or help you evaluate options against the task before you buy. Staying hardware-neutral means our recommendation is not shaped by a reseller margin.",
+      },
+      {
+        question: "Is robotics a new practice for Coordinatez?",
+        answer:
+          "Yes, and we would rather say so than imply otherwise. Robotics is a new practice built on an existing engineering and AI team — the same people who ship production software and machine-learning systems. First engagements are deliberately structured to de-risk that: a scoped pilot with defined acceptance criteria, simulation-first validation, and no long commitment before the approach is proven on your parts.",
+      },
+      {
+        question: "Can our own engineers maintain what you build?",
+        answer:
+          "That is the intent. We write against standard frameworks rather than private abstractions, document the architecture, and include handover as a scoped phase. If you would rather we keep running it, we can — but it should be a choice, not a lock-in.",
+      },
+    ],
+    related: ["robotic-vision", "industrial-automation", "custom-software"],
+  },
+  {
+    id: "industrial-automation",
+    slug: "industrial-automation",
+    title: "Industrial Automation & Robot Integration",
+    navLabel: "Industrial Automation",
+    category: "Robotics",
+    description:
+      "Bringing robots and automation into an existing production line — cell scoping, controls and PLC integration, and the connection back to your MES, ERP, and reporting.",
+    metaTitle: "Industrial Automation & Robot Integration | Coordinatez Technology",
+    metaDescription:
+      "Industrial automation and robot integration — cell scoping, PLC and controls software, MES and ERP integration, and commissioning coordinated with licensed integration partners.",
+    keywords: [
+      "industrial automation services",
+      "robot integration company",
+      "PLC programming services",
+      "manufacturing automation integration",
+      "robotic cell integration",
+    ],
+    intro: [
+      "A robot bought in isolation becomes an island. The arm is rarely the expensive part — the cost sits in fixturing, controls, line integration, and the safety work that lets a machine run next to people. Plenty of capable robots sit idle in plants because that surrounding work was never scoped.",
+      "We scope the cell end to end and build the controls and integration software that connects it to the rest of the plant — PLC logic, line data, and the link back to your MES or ERP so production numbers leave the controller and reach the people who make decisions. On-site commissioning is delivered together with a licensed integration partner, and safety validation is performed and signed off by a qualified party. We state that split in writing before work starts, because ambiguity about who owns safety is how people get hurt.",
+    ],
+    problem:
+      "A robot delivers nothing until it is integrated — fixturing, controls, line data, and safety sign-off. Projects stall when that surrounding scope is discovered after the hardware has been bought.",
+    solution:
+      "We scope the cell against your real takt time and part mix, build the controls and integration software, connect the line to your MES or ERP, and coordinate commissioning with a licensed integration partner under a written split of responsibility.",
+    technologies: [
+      "Siemens & Allen-Bradley PLC",
+      "OPC UA",
+      "Modbus / EtherNet-IP",
+      "SCADA & HMI",
+      "MES / ERP integration",
+      "Python",
+    ],
+    benefits: [
+      "Cell scoped against your actual takt time and part mix",
+      "Safety scope assigned and documented before build begins",
+      "Line data flowing into your MES/ERP instead of stranded in the controller",
+      "Integration-partner coordination handled rather than left to you",
+    ],
+    useCases: [
+      "Robotic palletising or pick-and-place on an existing line",
+      "Machine tending and part transfer",
+      "PLC-to-ERP data integration and production reporting",
+      "Retrofitting an idle robot to a new part family",
+      "Controls and HMI modernisation on ageing equipment",
+    ],
+    faqs: [
+      {
+        question: "Do you perform the on-site installation yourselves?",
+        answer:
+          "We deliver the scoping, controls, and integration software, and we are on site for commissioning. The mechanical installation and electrical work are delivered with a licensed integration partner local to your plant. You get one scope and one point of contact; the regulated work is done by parties licensed to do it.",
+      },
+      {
+        question: "Who is responsible for machine safety?",
+        answer:
+          "Risk assessment and safety validation are performed and certified by a qualified safety party, named in the contract before work begins. We build to the resulting safety requirements and will not design around them. If a proposed change affects the safety case, it goes back for re-assessment rather than being absorbed quietly.",
+      },
+      {
+        question: "Can you work with a robot we already own?",
+        answer:
+          "Often, yes — re-purposing an idle robot to a new part family is one of the more economical automation projects available. The honest answer depends on reach, payload, and controller age, which we assess before proposing anything.",
+      },
+    ],
+    related: ["robotics-software", "robotic-vision", "business-automation"],
+  },
+  {
+    id: "robotic-vision",
+    slug: "robotic-vision",
+    title: "Robotic Vision & Perception",
+    navLabel: "Robotic Vision",
+    category: "Robotics",
+    description:
+      "Vision systems that let a robot find, identify, and inspect parts — pose estimation, defect detection, and explicit handling of the cases the model is unsure about.",
+    metaTitle: "Robotic Vision & Machine Vision Systems | Coordinatez Technology",
+    metaDescription:
+      "Robotic vision and perception systems — bin-picking pose estimation, surface defect detection, and inspection, with accuracy measured on your parts and defined low-confidence behavior.",
+    keywords: [
+      "robotic vision systems",
+      "machine vision inspection",
+      "bin picking vision",
+      "AI defect detection manufacturing",
+      "computer vision for robotics",
+    ],
+    intro: [
+      "Vision is what separates a robot repeating a fixed path from one that handles the real world, where parts arrive rotated, overlapping, dusty, and occasionally wrong. A vision system has to answer three questions reliably: what is this, where exactly is it, and is it acceptable.",
+      "The third question is where most projects get uncomfortable. A model that is 97% accurate is also wrong roughly once every thirty-three parts, and what happens on that part matters more than the headline number. We build vision with the confidence threshold, the reject path, and the human escalation designed in from the start, and we measure accuracy against your parts and your lighting rather than a benchmark dataset that flatters everyone.",
+    ],
+    problem:
+      "Vision demos succeed on clean parts in good light. Production has glare, dust, overlap, and the variant nobody photographed — and a system with no defined behavior for uncertainty will confidently do the wrong thing.",
+    solution:
+      "We build perception against your actual parts and lighting, define the confidence threshold and reject path explicitly, and ship an evaluation harness so accuracy is measured over time rather than asserted once.",
+    technologies: [
+      "OpenCV",
+      "PyTorch",
+      "Segmentation & detection models",
+      "2D and 3D cameras",
+      "Point-cloud processing",
+      "NVIDIA Jetson",
+      "TensorRT / ONNX",
+    ],
+    benefits: [
+      "Accuracy measured on your parts, with the test set kept and re-runnable",
+      "Explicit low-confidence behavior — stop and escalate, never guess",
+      "Runs at line speed on edge hardware, with no cloud round-trip",
+      "A defined retraining path for when the part mix changes",
+    ],
+    useCases: [
+      "Bin picking and pose estimation for unstructured parts",
+      "Surface defect and finish inspection",
+      "Label, print, and barcode verification",
+      "Dimensional and tolerance checks",
+      "Assembly presence and absence verification",
+    ],
+    faqs: [
+      {
+        question: "How much training data do you need?",
+        answer:
+          "Less than most people expect for classification, more than most expect for rare defects — you cannot learn a defect you have almost no examples of. We assess this before committing to an approach, and where examples are scarce we will say so and propose a rules-based or hybrid method rather than a model that looks confident and is not.",
+      },
+      {
+        question: "What happens when the system is not sure?",
+        answer:
+          "It stops and escalates. Every system we build has an explicit confidence threshold and a defined reject path, agreed with you during scoping. A vision system that guesses under uncertainty is worse than no vision system, because it removes the human who would have caught it.",
+      },
+      {
+        question: "Do the images leave our facility?",
+        answer:
+          "Not unless you want them to. Inference runs on edge hardware in your plant. Training data handling is agreed in writing, and on-premises training is available where images are sensitive.",
+      },
+    ],
+    related: ["machine-learning", "robotics-software", "data-analytics"],
+  },
+  {
+    id: "warehouse-robotics",
+    slug: "warehouse-robotics",
+    title: "Warehouse Robotics & Fleet Software",
+    navLabel: "Warehouse Robotics",
+    category: "Robotics",
+    description:
+      "The software layer over warehouse robots — fleet orchestration, WMS and ERP integration, and the operations visibility that shows whether the fleet is earning its cost.",
+    metaTitle: "Warehouse Robotics & AMR Fleet Software | Coordinatez Technology",
+    metaDescription:
+      "Warehouse robotics software — AMR fleet orchestration, WMS and ERP integration, task allocation tuned to your order profile, and throughput reporting you can act on.",
+    keywords: [
+      "warehouse robotics software",
+      "AMR fleet management software",
+      "warehouse automation integration",
+      "WMS robotics integration",
+      "AGV fleet orchestration",
+    ],
+    intro: [
+      "Most disappointment with warehouse robotics is not a robot problem. The AMRs work. What is missing is the layer above them: task allocation that understands your pick priorities, integration with the WMS that already runs the floor, and a view of throughput honest enough to tell you whether the fleet is paying for itself.",
+      "That layer is software, and it is the work we do. We integrate with the fleet manager your vendor supplies rather than trying to replace it, connect it to your WMS or ERP, and build the operations view your floor supervisors and your finance team each need — in our experience two different screens, not one compromise.",
+    ],
+    problem:
+      "Fleets are bought on a vendor demo, then run below promised throughput because task allocation ignores real pick priorities and nobody can see where the time actually goes.",
+    solution:
+      "We integrate the fleet with your WMS or ERP, shape task allocation around your real order profile, and build the throughput and utilisation reporting that lets you argue about fleet performance with evidence instead of impressions.",
+    technologies: [
+      "VDA 5050",
+      "REST & GraphQL APIs",
+      "MQTT",
+      "Python / Node.js",
+      "PostgreSQL",
+      "WMS & ERP connectors",
+      "React dashboards",
+    ],
+    benefits: [
+      "Vendor-neutral integration layer — no lock-in to one fleet supplier",
+      "Task allocation tuned to your order profile, not a generic default",
+      "Robot activity reconciled against WMS records rather than assumed",
+      "Throughput and utilisation reporting in numbers finance accepts",
+    ],
+    useCases: [
+      "AMR or AGV fleet integration with an existing WMS",
+      "Task allocation and priority logic for mixed order profiles",
+      "Multi-vendor fleet orchestration under one interface",
+      "Throughput, utilisation, and exception dashboards",
+      "Pick-path and slotting analysis ahead of a fleet expansion",
+    ],
+    faqs: [
+      {
+        question: "Do we need to replace our WMS?",
+        answer:
+          "Almost never, and we would push back if someone suggested it. The integration sits alongside your WMS through its API or database, and the WMS stays the system of record. Replacing working warehouse software to accommodate robots is an expensive way to solve the wrong problem.",
+      },
+      {
+        question: "Can you work with robots from more than one vendor?",
+        answer:
+          "Yes — that is much of the point. We build to standard interfaces such as VDA 5050 where the vendor supports it, and to their API where it does not, so a second supplier later is a normal project rather than a rebuild.",
+      },
+      {
+        question: "Can you tell us whether automation is worth it before we buy?",
+        answer:
+          "We can analyse your order profile, pick paths, and current throughput and model where robots would and would not help. Sometimes the answer is slotting changes rather than robots. We would rather tell you that than sell you an integration you did not need.",
+      },
+    ],
+    related: ["robotics-software", "business-automation", "data-analytics"],
   },
 ];
 

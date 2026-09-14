@@ -34,10 +34,14 @@
 - Custom Software Development (/technology/custom-software): Purpose-built systems for the workflows off-the-shelf software can't handle — ERPs, CRMs, quoting engines, and operational platforms.
 - Data Analytics (/technology/data-analytics): Turning scattered operational data into dashboards and reports leadership actually uses to decide.
 - Digital Marketing (/technology/digital-marketing): Measurable acquisition across search, social, and email — strategy, campaigns, and analytics tied to revenue, not vanity metrics.
+- Industrial Automation & Robot Integration (/technology/industrial-automation): Bringing robots and automation into an existing production line — cell scoping, controls and PLC integration, and the connection back to MES, ERP, and reporting.
 - Machine Learning Solutions (/technology/machine-learning): Predictive models for forecasting, classification, and anomaly detection — built pragmatically and only where they beat simpler methods.
 - Mobile App Development (/technology/mobile-applications): Native-quality iOS and Android apps from a single codebase — designed for real usage patterns, offline conditions, and app-store approval.
+- Robotic Vision & Perception (/technology/robotic-vision): Vision systems that let a robot find, identify, and inspect parts — pose estimation, defect detection, and explicit handling of uncertain cases.
+- Robotics Software & Control Systems (/technology/robotics-software): Application, control, and simulation software for robots — ROS 2 stacks, task logic, and operator tooling.
 - SEO Services (/technology/seo): Technical and content SEO that compounds — earning the searches your customers already make, month after month.
 - Web Development (/technology/web-development): Fast, secure, search-friendly websites and web applications — from corporate sites and e-commerce to complex customer portals.
+- Warehouse Robotics & Fleet Software (/technology/warehouse-robotics): Fleet orchestration, WMS and ERP integration, and operations visibility for warehouse robots.
 
 ## FAQ
 Q: What exactly does Coordinatez do?
@@ -173,6 +177,7 @@ Q: Can you help with local SEO for Chicago?
 A: Yes. Local SEO combines an optimized Google Business Profile, consistent business listings, location-relevant content, and local schema. We can build the local signals that help you show up for 'near me' and city-specific searches.
 
 ## Other
+- Robotics is a new practice at Coordinatez, built on the existing engineering and AI team. There are no delivered robotics client projects yet; first engagements are structured as scoped pilots with defined acceptance criteria.
 - Pricing: the site publishes no prices; quotes come from a scoping conversation via /contact.
 - Team: the site publishes no individual team member pages.
 - **/about** — Coordinatez is an IT services and AI solutions company headquartered in Chicago with its own development center in Mehsana, India. Learn who we are, how we work, the values we work by, and how our global offices fit together.

@@ -6,7 +6,7 @@ export const siteConfig = {
   legalName: "Coordinatez",
   tagline: "Technology That Moves Business Forward.",
   description:
-    "Coordinatez is an IT services and AI solutions company headquartered in Chicago, with its own development center in Mehsana, India. We design, build, and run web platforms, mobile apps, custom software, AI integrations, automation, and data systems for startups, SMEs, and enterprises.",
+    "Coordinatez is an IT services and AI solutions company headquartered in Chicago, with its own development center in Mehsana, India. We design, build, and run web platforms, mobile apps, custom software, AI integrations, automation, robotics, and data systems for startups, SMEs, and enterprises.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://coordinatez.com",
   keywords: [
     "Coordinatez",
@@ -23,6 +23,10 @@ export const siteConfig = {
     "cloud engineering",
     "IT services company USA",
     "AI company Chicago",
+    "robotics software development",
+    "industrial automation company",
+    "robot integration services",
+    "machine vision systems",
   ],
   email: {
     // Public-facing addresses — update if the mailbox names differ on the coordinatez.com domain.
@@ -41,7 +45,7 @@ export const siteConfig = {
       href: "/technology",
       tagline: "Technology That Moves Business Forward.",
       summary:
-        "IT services and AI solutions — web, mobile, custom software, AI integration, automation, data, and cloud — delivered from our development center in India for clients worldwide.",
+        "IT services and AI solutions — web, mobile, custom software, AI integration, automation, robotics, data, and cloud — delivered from our development center in India for clients worldwide.",
     },
   },
   // The Global Trade division runs on its own site. This site (www) is the

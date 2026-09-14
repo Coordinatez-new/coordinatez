@@ -7,7 +7,7 @@ export const faqs: Faq[] = [
   {
     question: "What exactly does Coordinatez do?",
     answer:
-      "Coordinatez is an IT services and AI solutions company. We design, build, and run web and mobile applications, custom software, AI integrations and agents, business automation, data platforms, and cloud systems for startups, SMEs, and enterprises. The company also operates a separate Global Trade division, which handles international import & export from its own site at trade.coordinatez.com.",
+      "Coordinatez is an IT services and AI solutions company. We design, build, and run web and mobile applications, custom software, AI integrations and agents, business automation, data platforms, cloud systems, and robotics — robot software, machine vision, industrial automation, and warehouse fleet integration — for startups, SMEs, and enterprises. The company also operates a separate Global Trade division, which handles international import & export from its own site at trade.coordinatez.com.",
   },
   {
     question: "Where is Coordinatez located?",
