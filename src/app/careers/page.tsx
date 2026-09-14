@@ -15,11 +15,11 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Careers — Build Software & AI That Ships",
   description:
-    "Careers at Coordinatez: engineering, AI, and business operations roles across our Chicago headquarters and our development center in Mehsana, Gujarat, India. See open positions or introduce yourself.",
+    "Careers at Coordinatez: engineering, AI, and business operations roles across our Chicago headquarters and our development center in Gujarat, India. See open positions or introduce yourself.",
   path: "/careers",
   keywords: [
     "Coordinatez careers",
-    "software engineering jobs Mehsana",
+    "software engineering jobs Gujarat",
     "AI engineering jobs India",
     "IT jobs Gujarat",
     "technology internships India",
@@ -40,7 +40,7 @@ const whyReasons = [
   {
     title: "Cross-continent collaboration",
     description:
-      "Our Chicago headquarters and our Mehsana development center work the same problems from both sides of the day. You'll collaborate across US Central Time and India Standard Time as a normal part of how work gets done.",
+      "Our Chicago headquarters and our India development center work the same problems from both sides of the day. You'll collaborate across US Central Time and India Standard Time as a normal part of how work gets done.",
   },
   {
     title: "Grow with a company still being built",
@@ -114,7 +114,7 @@ export default function CareersPage() {
               </Button>
               <div className="flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
                 <MapPin className="size-3.5" />
-                Chicago, USA · Mehsana, India
+                Chicago, USA · Gujarat, India
               </div>
             </div>
           </RevealOnScroll>

@@ -42,7 +42,7 @@ export function Hero() {
           <RevealOnScroll delay={0.16}>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-[var(--ink-panel-muted)] sm:text-lg">
               {siteConfig.name} is an IT services &amp; AI solutions company — Chicago-based,
-              with our own development center in Mehsana, India. We design, build, and run web
+              with our own development center in Gujarat, India. We design, build, and run web
               platforms, custom software, AI integrations, and data systems for startups, SMEs,
               and enterprises.
             </p>

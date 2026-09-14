@@ -6,7 +6,7 @@ export const siteConfig = {
   legalName: "Coordinatez",
   tagline: "Technology That Moves Business Forward.",
   description:
-    "Coordinatez is an IT services and AI solutions company headquartered in Chicago, with its own development center in Mehsana, India. We design, build, and run web platforms, mobile apps, custom software, AI integrations, automation, robotics, and data systems for startups, SMEs, and enterprises.",
+    "Coordinatez is an IT services and AI solutions company headquartered in Chicago, with its own development center in Gujarat, India. We design, build, and run web platforms, mobile apps, custom software, AI integrations, automation, robotics, and data systems for startups, SMEs, and enterprises.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://coordinatez.com",
   keywords: [
     "Coordinatez",
@@ -70,11 +70,11 @@ export const siteConfig = {
       label: "Technology & Development",
       company: "Coordinatez",
       role: "Technology & AI Solutions Division",
-      city: "Mehsana, Gujarat",
+      city: "Gujarat",
       country: "India",
-      addressLines: ["3rd Floor, Orbit Business Hub", "Mehsana, Gujarat 384002, India"],
-      coordinates: { lat: 23.588, lon: 72.3693, label: "23.5880° N / 72.3693° E" },
-      mapEmbedSrc: "https://www.google.com/maps?q=Mehsana,+Gujarat,+India&output=embed",
+      addressLines: ["Gujarat, India"],
+      coordinates: { lat: 22.2587, lon: 71.1924, label: "22.2587° N / 71.1924° E" },
+      mapEmbedSrc: "https://www.google.com/maps?q=Gujarat,+India&output=embed",
     },
     australia: {
       label: "Australia Office",

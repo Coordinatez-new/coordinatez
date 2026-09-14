@@ -17,7 +17,7 @@ export const careerTracks = [
     id: "technology",
     title: "Technology Careers",
     description:
-      "Frontend, backend, and full-stack engineering, mobile development, QA, and DevOps — building client products and internal platforms from our development center in Mehsana, India.",
+      "Frontend, backend, and full-stack engineering, mobile development, QA, and DevOps — building client products and internal platforms from our development center in Gujarat, India.",
   },
   {
     id: "ai",

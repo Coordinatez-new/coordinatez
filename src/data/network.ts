@@ -1,5 +1,5 @@
 // Shared geographic data for the 3D globe and 2D trade-network map.
-// Chicago, Mehsana, and Sydney are Coordinatez locations — every other node is a
+// Chicago, Gujarat, and Sydney are Coordinatez locations — every other node is a
 // market/trade hub we connect to, never presented as an office.
 export type NetworkNode = {
   id: string;
@@ -12,7 +12,7 @@ export type NetworkNode = {
 
 export const networkNodes: NetworkNode[] = [
   { id: "chicago", city: "Chicago", region: "United States — Global HQ", lat: 41.9848, lon: -87.8459, kind: "headquarters" },
-  { id: "mehsana", city: "Mehsana", region: "India — Technology & Development", lat: 23.588, lon: 72.3693, kind: "development" },
+  { id: "mehsana", city: "Gujarat", region: "India — Technology & Development", lat: 23.588, lon: 72.3693, kind: "development" },
   { id: "sydney", city: "Sydney", region: "Australia — Asia-Pacific Office", lat: -33.82, lon: 151.0, kind: "office" },
   { id: "houston", city: "Houston", region: "US Gulf — Trade Corridor", lat: 29.7604, lon: -95.3698, kind: "market" },
   { id: "rotterdam", city: "Rotterdam", region: "Europe — Port Market", lat: 51.9244, lon: 4.4777, kind: "market" },

@@ -44,7 +44,7 @@ export function TradeNetworkMap({ className }: { className?: string }) {
     <svg
       viewBox={`0 0 ${W} ${H}`}
       role="img"
-      aria-label="Map of the Coordinatez global network connecting Chicago, Mehsana, and Sydney with partner markets and hubs"
+      aria-label="Map of the Coordinatez global network connecting Chicago, Gujarat, and Sydney with partner markets and hubs"
       className={className}
     >
       {/* graticule */}

@@ -144,8 +144,8 @@ once both keys below are set.
 
 ## 5. Google Business Profile (GBP)
 
-Coorbitz is a B2B IT/AI services company with two locations: a Chicago HQ and a Mehsana,
-Gujarat dev office. Neither is a walk-in storefront.
+Coorbitz is a B2B IT/AI services company with two locations: a Chicago HQ and a Gujarat,
+India dev office. Neither is a walk-in storefront.
 
 **Should both locations be listed?**
 - A storefront listing (a full address shown publicly, pin on Maps) makes sense for a business
@@ -160,14 +160,18 @@ Gujarat dev office. Neither is a walk-in storefront.
 - Practical recommendation for a B2B services company like Coorbitz: create **one profile for
   the Chicago HQ** as the primary listing (service-area business if the office isn't staffed
   for visitors, or a normal address listing if it is a genuine staffed office), and treat
-  Mehsana as an internal delivery/dev center rather than a second public GBP listing, unless it
-  also independently markets to local clients in India. Running two separate GBP profiles for
+  the India operation as an internal delivery/dev center rather than a second public GBP
+  listing. Running two separate GBP profiles for
   one company can trigger Google's duplicate-listing and quality-guideline issues unless the
   second location is clearly a distinct, independently reachable business location with its
   own signage and staff.
-- If Mehsana does need its own presence (e.g., for hiring/local visibility in Gujarat), it
-  should be created as its own profile with its own accurate category and, again, either SAB
-  or a genuinely staffed address — not a placeholder.
+- A second listing for India is **out of scope while the public address is region-only**
+  ("Gujarat, India"). GBP requires a specific, verifiable address or a defined service area,
+  and the site deliberately no longer publishes a street address or locality for the India
+  operation. If that is revisited — e.g., for hiring visibility in Gujarat — the address in
+  `src/data/site.ts` has to be restored to a specific staffed location first, and the listing
+  created as its own profile with either SAB or a genuinely staffed address, not a
+  placeholder.
 
 **Verification steps** (per location)
 1. Create/claim the listing at business.google.com, enter the business name, category (e.g.,

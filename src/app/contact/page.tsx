@@ -19,7 +19,7 @@ import { faqs } from "@/data/faqs";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Us — Technology & AI Inquiries",
   description:
-    "Talk to Coordinatez about technology and AI projects, partnerships, or careers. Offices in Chicago, USA and Mehsana, India — we respond within one business day.",
+    "Talk to Coordinatez about technology and AI projects, partnerships, or careers. Offices in Chicago, USA and Gujarat, India — we respond within one business day.",
   path: "/contact",
   keywords: [
     "contact Coordinatez",
@@ -109,11 +109,7 @@ export default function ContactPage() {
                       <p className="text-sm font-medium">
                         {location.company} — {location.label}
                       </p>
-                      {/* India office shows only the city/region line. */}
-                      {(location === dev
-                        ? [dev.addressLines[dev.addressLines.length - 1]]
-                        : location.addressLines
-                      ).map((line) => (
+                      {location.addressLines.map((line) => (
                         <p key={line} className="text-sm text-muted-foreground">
                           {line}
                         </p>

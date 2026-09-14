@@ -442,7 +442,7 @@ export default function PrivacyPolicyPage() {
             <PolicySection title="13. International data transfers">
               <p>
                 {siteConfig.name} operates from the United States (Chicago, Illinois) and India
-                (Mehsana, Gujarat). Information you submit is stored on servers in the United
+                (Gujarat). Information you submit is stored on servers in the United
                 States and may be accessed and processed by our teams in either country. Wherever
                 your information is processed, we apply the protections described in this policy.
               </p>

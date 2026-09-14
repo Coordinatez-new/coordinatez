@@ -14,7 +14,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "About Us — An IT Services & AI Solutions Company",
   description:
-    "Coordinatez is an IT services and AI solutions company headquartered in Chicago with its own development center in Mehsana, India. Learn who we are, how we work, the values we work by, and how our global offices fit together.",
+    "Coordinatez is an IT services and AI solutions company headquartered in Chicago with its own development center in Gujarat, India. Learn who we are, how we work, the values we work by, and how our global offices fit together.",
   path: "/about",
   keywords: [
     "about Coordinatez",
@@ -235,7 +235,7 @@ export default function AboutPage() {
             index="04"
             eyebrow="How We're Organized"
             title="One company. Offices across three continents."
-            description="Corporate and client partnerships run from Chicago; technology and AI are engineered from our development center in Mehsana, India — one company, one accountable team."
+            description="Corporate and client partnerships run from Chicago; technology and AI are engineered from our development center in Gujarat, India — one company, one accountable team."
             onInk
           />
           <RevealOnScroll className="mt-12">
@@ -247,7 +247,7 @@ export default function AboutPage() {
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--ink-panel-muted)]">
                   The parent company. Corporate functions and client partnerships run from our
-                  headquarters at {hq.addressLines[0]}, {hq.city} — the commercial front door of
+                  headquarters at {hq.addressLines.join(", ")} — the commercial front door of
                   the company.
                 </p>
                 <p className="mt-4 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-[var(--ink-panel-muted)]">

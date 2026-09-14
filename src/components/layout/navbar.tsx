@@ -37,7 +37,7 @@ export function Navbar() {
           <span>
             Chicago {siteConfig.locations.headquarters.coordinates.label}
             <span className="mx-3 text-[var(--ink-panel-border)]">|</span>
-            Mehsana {siteConfig.locations.development.coordinates.label}
+            Gujarat {siteConfig.locations.development.coordinates.label}
           </span>
           <a
             href={`mailto:${siteConfig.email.contact}`}
@@ -140,7 +140,7 @@ export function Navbar() {
                     </Link>
                   </Button>
                   <p className="mt-6 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">
-                    Chicago · Mehsana · Global Markets
+                    Chicago · Gujarat · Global Markets
                   </p>
                 </nav>
               </SheetContent>

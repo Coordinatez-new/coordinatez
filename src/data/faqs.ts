@@ -12,7 +12,7 @@ export const faqs: Faq[] = [
   {
     question: "Where is Coordinatez located?",
     answer:
-      "Our global headquarters is in Chicago, Illinois, USA. Technology and development work is led from our own center in Mehsana, Gujarat, India, and our Asia-Pacific office is in Harris Park, NSW, Australia.",
+      "Our global headquarters is in Chicago, Illinois, USA. Technology and development work is led from our own center in Gujarat, India, and our Asia-Pacific office is in Harris Park, NSW, Australia.",
   },
   {
     question: "Do you work with small businesses or only enterprises?",

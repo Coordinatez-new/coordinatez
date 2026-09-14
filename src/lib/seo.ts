@@ -94,9 +94,7 @@ export function organizationJsonLd() {
         name: siteConfig.locations.development.label,
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Mehsana",
           addressRegion: "Gujarat",
-          postalCode: "384002",
           addressCountry: "IN",
         },
       },
