@@ -1,17 +1,27 @@
-// Builds the chatbot knowledge base by crawling the LIVE website.
+// Snapshots the LIVE website for drift diagnosis.
 //
 //   npm run build:knowledge
+//
+// NOTE: this script NO LONGER feeds the chatbot. It used to overwrite
+// data/company-knowledge.md wholesale from a crawl, which meant the assistant
+// mirrored whatever was deployed - stale content and all - and silently ate
+// any hand edit. The assistant's knowledge is now generated from this repo's
+// own data modules in src/lib/chat-knowledge.ts, with data/company-knowledge.md
+// as a hand-authored supplement that nothing overwrites.
+//
+// What this script is still good for: comparing what production says against
+// what the repo says. Run it, then diff data/site-crawl-snapshot.md against the
+// repo to spot pages that never got deployed, or facts that drifted.
 //
 // Crawls only pages on our own domain (respecting robots.txt, with a polite
 // delay), strips chrome (nav/footer/scripts/styles), reads structured data from
 // JSON-LD (schema.org) markup, and emits:
 //
-//   data/company-knowledge.md    – human-readable, hand-editable (chatbot input)
-//   data/company-knowledge.json  – structured contact fields
+//   data/site-crawl-snapshot.md    – human-readable snapshot of the live site
+//   data/site-crawl-snapshot.json  – structured contact fields as published
 //
-// The chat route loads company-knowledge.md into the Gemini system instruction
-// at server start (see src/lib/chat-knowledge.ts). Re-run this script — or edit
-// the markdown by hand — and redeploy to update the assistant's knowledge.
+// Neither file is read at runtime. To change what the assistant knows, edit the
+// data modules under src/data/ or the supplement in data/company-knowledge.md.
 //
 // ⚠ warnings are printed for any field that could not be found on the site, so
 // missing facts can be filled in manually in the markdown.
@@ -345,12 +355,13 @@ ${["/about", "/industries", "/global-presence", "/careers", "/insights"].map((p)
 
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   mkdirSync(path.join(root, "data"), { recursive: true });
-  writeFileSync(path.join(root, "data", "company-knowledge.md"), md, "utf8");
-  writeFileSync(path.join(root, "data", "company-knowledge.json"), JSON.stringify(json, null, 2), "utf8");
+  writeFileSync(path.join(root, "data", "site-crawl-snapshot.md"), md, "utf8");
+  writeFileSync(path.join(root, "data", "site-crawl-snapshot.json"), JSON.stringify(json, null, 2), "utf8");
 
   const tokens = Math.round(md.length / 4);
-  console.log(`\nWrote data/company-knowledge.md (~${tokens} tokens) and data/company-knowledge.json`);
-  if (tokens > MAX_TOKENS) warn(`Markdown is ~${tokens} tokens (soft cap ${MAX_TOKENS}) — consider trimming ## Other.`);
+  console.log(`\nWrote data/site-crawl-snapshot.md (~${tokens} tokens) and data/site-crawl-snapshot.json`);
+  console.log("These are diagnostics only - nothing reads them at runtime.");
+  if (tokens > MAX_TOKENS) warn(`Snapshot is ~${tokens} tokens (soft cap ${MAX_TOKENS}) — consider trimming ## Other.`);
   console.log(`${warnings.length} warning(s) above need a human look.`);
 }
 
