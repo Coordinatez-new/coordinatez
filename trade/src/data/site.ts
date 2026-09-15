@@ -29,8 +29,7 @@ export const siteConfig = {
   },
   phone: {
     us: "+1 (872) 258-2235",
-    // Placeholder — replace with the real India business line before launch.
-    india: "+91 79905 12345",
+    india: "+91 8200688817",
   },
   // Parent company — the trade site cross-links to the corporate/IT site.
   parent: {

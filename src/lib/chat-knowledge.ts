@@ -70,7 +70,7 @@ function buildKnowledge(): string {
 
 ## Contact
 - Email: ${siteConfig.email.contact}
-- Phone (US): ${siteConfig.phone.us} — this is the ONLY published phone number. Do not give out any other number.
+- Phone (US): ${siteConfig.phone.us}. Phone (India office): ${siteConfig.phone.india}. These are the ONLY published phone numbers. Do not give out any other number.
 - Contact page: /contact (has an inquiry form). Careers page: /careers. Global presence: /global-presence.
 - Business hours: ${siteConfig.businessHours.map((b) => `${b.days}: ${b.hours}`).join("; ")}.
 
