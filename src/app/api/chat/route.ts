@@ -80,15 +80,14 @@ export async function POST(request: Request) {
           systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
           contents,
           generationConfig: {
-            // gemini-flash-latest resolves to a "thinking" model whose hidden
-            // reasoning counts against maxOutputTokens — with a small budget it
-            // spends everything thinking and streams little or no visible text.
-            // Some versions ignore thinkingBudget:0, so the ceiling must leave
-            // real headroom either way. Replies stay short by prompt instruction;
-            // the cap is a safety ceiling, not a target.
+            // The Gemini "-latest" aliases resolve to thinking models whose hidden
+            // reasoning counts against maxOutputTokens, so the ceiling must leave
+            // real headroom or replies stream back empty. Do NOT add
+            // thinkingConfig here: some aliased models (gemini-flash-lite-latest)
+            // reject thinkingBudget with 400 INVALID_ARGUMENT. Replies stay short
+            // by prompt instruction; the cap is a safety ceiling, not a target.
             maxOutputTokens: 4096,
             temperature: 0.4,
-            thinkingConfig: { thinkingBudget: 0 },
           },
         }),
       }
