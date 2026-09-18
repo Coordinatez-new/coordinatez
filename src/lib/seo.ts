@@ -21,8 +21,15 @@ export function buildMetadata({
   const url = `${siteConfig.url}${path}`;
   // Append the brand suffix only when the title doesn't already carry it — landing
   // pages supply full brand-inclusive titles, while simpler pages rely on the suffix.
+  // Drop it when the combined title would exceed ~60 characters, since Google
+  // truncates past that and a cut-off brand is worse than no brand.
+  const suffixed = `${title} | ${siteConfig.name}`;
   const fullTitle =
-    path === "/" || title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
+    path === "/" || title.includes(siteConfig.name)
+      ? title
+      : suffixed.length <= 60
+        ? suffixed
+        : title;
 
   // Reference the generated OG image explicitly so EVERY page carries og:image /
   // twitter:image (the opengraph-image file convention only attaches to the root

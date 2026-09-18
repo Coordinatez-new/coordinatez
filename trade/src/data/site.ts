@@ -8,6 +8,10 @@ export const siteConfig = {
   description:
     "Coordinatez Global Trade is a US-based international trading company headquartered in Chicago. We export metal and scrap — ferrous and non-ferrous grades, aluminium, and copper — and run end-to-end import/export operations between the United States, India, and global markets.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://trade.coordinatez.com",
+  // Short form for <meta name="description">. `description` above is the long
+  // prose version used in schema.org markup.
+  metaDescription:
+    "Coordinatez Global Trade is a US-based exporter of ferrous and non-ferrous metal scrap, aluminium and copper, trading between the USA, India and world markets.",
   keywords: [
     "Coordinatez Global Trade",
     "scrap metal export",

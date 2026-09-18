@@ -7,7 +7,11 @@ export const siteConfig = {
   tagline: "Technology That Moves Business Forward.",
   description:
     "Coordinatez is an IT services and AI solutions company headquartered in Chicago, with its own development center in Gujarat, India. We design, build, and run web platforms, mobile apps, custom software, AI integrations, automation, robotics, and data systems for startups, SMEs, and enterprises.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://coordinatez.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.coordinatez.com",
+  // Short form for <meta name="description">. `description` above is the long
+  // prose version used in schema.org markup and the assistant's knowledge base.
+  metaDescription:
+    "Coordinatez is an IT services and AI solutions company in Chicago, building web platforms, mobile apps, custom software, AI integrations, and automation.",
   keywords: [
     "Coordinatez",
     "IT services",

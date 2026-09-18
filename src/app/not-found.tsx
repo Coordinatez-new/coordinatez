@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
+import { buildMetadata } from "@/lib/seo";
+
+// A 404 must not share the homepage's title and description, and must not be
+// indexed — otherwise every bad URL competes with the homepage in search.
+export const metadata: Metadata = buildMetadata({
+  title: "Page Not Found",
+  description:
+    "This page does not exist. Browse Coordinatez technology and AI services, insights, and contact details, or return to the homepage.",
+  path: "/404",
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

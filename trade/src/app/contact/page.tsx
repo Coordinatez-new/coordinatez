@@ -19,7 +19,7 @@ import { faqs } from "@/data/faqs";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Us — Global Trade Inquiries",
   description:
-    "Talk to Coordinatez Global Trade about metal & scrap export, sourcing, and international trade requirements. Headquartered in Chicago, USA — we respond within one business day.",
+    "Talk to Coordinatez Global Trade about metal and scrap export, sourcing, and international trade. We respond within one business day.",
   path: "/contact",
   keywords: [
     "contact Coordinatez Global Trade",

@@ -35,7 +35,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   ...buildMetadata({
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    description: siteConfig.metaDescription,
     path: "/",
   }),
   metadataBase: new URL(siteConfig.url),

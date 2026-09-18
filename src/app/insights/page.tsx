@@ -11,7 +11,7 @@ import { insights } from "@/data/insights";
 export const metadata: Metadata = buildMetadata({
   title: "Insights — Writing on AI, Software & Engineering",
   description:
-    "Practical writing on AI, software, and engineering from the Coordinatez team — field notes on AI agents, custom software decisions, data readiness, and how a US–India engineering team actually works.",
+    "Practical writing on AI, software, and engineering from the Coordinatez team — field notes on AI agents, custom software, and getting data ready.",
   path: "/insights",
   keywords: [
     "Coordinatez insights",

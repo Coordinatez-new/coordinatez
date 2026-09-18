@@ -12,9 +12,9 @@ import { services, serviceCategories } from "@/data/services";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "IT Services & AI Solutions Company USA | Coordinatez Technology",
+  title: "IT Services & AI Solutions Company USA | Coordinatez",
   description:
-    "IT services and AI solutions for US businesses — web and mobile development, custom software, AI integration, AI agents, business automation, data analytics, cloud, and SEO.",
+    "IT services and AI solutions for US businesses — web and mobile development, custom software, AI integration, automation, robotics, data, and cloud.",
   path: "/technology",
   keywords: [
     "IT services company USA",

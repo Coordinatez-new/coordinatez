@@ -12,7 +12,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "About Us — A US-Based International Trading Company",
   description:
-    "Coordinatez Global Trade is the trading division of Coordinatez, headquartered in Chicago. Learn who we are, how we run metal & scrap export and international trade, and the values we work by.",
+    "Coordinatez Global Trade is the trading division of Coordinatez, headquartered in Chicago — exporting metal and scrap between the USA, India and beyond.",
   path: "/about",
   keywords: [
     "about Coordinatez Global Trade",

@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "How Coordinatez Global Trade collects, uses, shares, and protects personal information on trade.coordinatez.com — cookies and consent, Meta, Google, LinkedIn and Microsoft advertising and measurement tags, form processing, retention, international transfers, and your GDPR, CCPA/CPRA and India DPDP rights.",
+    "How Coordinatez Global Trade collects, uses, shares, and protects personal data on trade.coordinatez.com — cookies, processors, retention, and your rights.",
   path: "/privacy-policy",
   noIndex: false,
 });

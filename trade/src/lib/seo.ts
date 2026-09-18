@@ -23,10 +23,15 @@ export function buildMetadata({
   // landing pages supply brand-inclusive titles ("… | Coordinatez"), while simpler
   // pages rely on the suffix. Checked against legalName ("Coordinatez") so titles
   // carrying the short brand aren't double-suffixed with the full division name.
+  // Drop the suffix when the combined title would exceed ~60 characters, since
+  // Google truncates past that and a cut-off brand is worse than no brand.
+  const suffixed = `${title} | ${siteConfig.name}`;
   const fullTitle =
     path === "/" || title.includes(siteConfig.legalName)
       ? title
-      : `${title} | ${siteConfig.name}`;
+      : suffixed.length <= 60
+        ? suffixed
+        : title;
 
   // Reference the generated OG image explicitly so EVERY page carries og:image /
   // twitter:image (the opengraph-image file convention only attaches to the root

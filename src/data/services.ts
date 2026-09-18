@@ -45,7 +45,7 @@ export const services: Service[] = [
       "Practical integration of large language models and AI services into the products and internal tools you already run.",
     metaTitle: "AI Integration Services USA | Coordinatez Technology",
     metaDescription:
-      "AI integration services for US businesses — connect LLMs and AI tools into your existing software with guardrails, evaluation, and cost control. Serving Chicago and the United States.",
+      "AI integration services for US businesses — connect LLMs and AI tools into the software you already run, with guardrails, evaluation, and cost control.",
     keywords: [
       "AI integration services USA",
       "AI integration company Chicago",
@@ -219,7 +219,7 @@ export const services: Service[] = [
       "Purpose-built systems for the workflows off-the-shelf software can't handle — ERPs, CRMs, quoting engines, and operational platforms.",
     metaTitle: "Custom Software Development Company USA | Coordinatez",
     metaDescription:
-      "Custom software development for US businesses — ERPs, CRMs, quoting engines, and operational platforms built around your actual workflows. Owned code, no per-seat lock-in.",
+      "Custom software development — ERPs, CRMs, quoting engines, and operational platforms built around your actual workflows. Owned code, no per-seat lock-in.",
     keywords: [
       "custom software development USA",
       "custom software development company",
@@ -509,7 +509,7 @@ export const services: Service[] = [
       "Predictive models for forecasting, classification, and anomaly detection — built pragmatically and only where they beat simpler methods.",
     metaTitle: "Machine Learning Solutions USA | Coordinatez Technology",
     metaDescription:
-      "Machine learning solutions for forecasting, classification, and anomaly detection — deployed with monitoring and retraining. Built only where ML beats simpler methods.",
+      "Machine learning for forecasting, classification, and anomaly detection — deployed with monitoring and retraining, only where it beats simpler methods.",
     keywords: [
       "machine learning solutions USA",
       "machine learning development company",
@@ -741,7 +741,7 @@ export const services: Service[] = [
       "Technical and content SEO that compounds — earning the searches your customers already make, month after month.",
     metaTitle: "SEO Services USA | Technical & Content SEO | Coordinatez",
     metaDescription:
-      "SEO services for US businesses — technical foundation, intent-mapped content, and authority building that compounds. Rank for the buying-intent searches customers already make.",
+      "SEO services for US businesses — technical foundation, intent-mapped content, and authority building that compounds over time, not one-off fixes.",
     keywords: [
       "SEO services USA",
       "SEO company",
@@ -799,7 +799,7 @@ export const services: Service[] = [
       "Application, control, and simulation software for robots — ROS 2 stacks, task logic, and the operator tooling that makes a cell usable by the people running it.",
     metaTitle: "Robotics Software Development | Coordinatez Technology",
     metaDescription:
-      "Robotics software development — ROS 2 application and control stacks, motion planning, simulation, and operator interfaces. Hardware-neutral engineering from Chicago and our India development center.",
+      "Robotics software development — ROS 2 application and control stacks, motion planning, simulation, and operator interfaces. Hardware-neutral engineering.",
     keywords: [
       "robotics software development",
       "ROS 2 development company",
@@ -856,9 +856,9 @@ export const services: Service[] = [
     category: "Robotics",
     description:
       "Bringing robots and automation into an existing production line — cell scoping, controls and PLC integration, and the connection back to your MES, ERP, and reporting.",
-    metaTitle: "Industrial Automation & Robot Integration | Coordinatez Technology",
+    metaTitle: "Industrial Automation & Robot Integration | Coordinatez",
     metaDescription:
-      "Industrial automation and robot integration — cell scoping, PLC and controls software, MES and ERP integration, and commissioning coordinated with licensed integration partners.",
+      "Industrial automation and robot integration — cell scoping, PLC and controls software, MES and ERP integration, and coordinated commissioning.",
     keywords: [
       "industrial automation services",
       "robot integration company",
@@ -922,9 +922,9 @@ export const services: Service[] = [
     category: "Robotics",
     description:
       "Vision systems that let a robot find, identify, and inspect parts — pose estimation, defect detection, and explicit handling of the cases the model is unsure about.",
-    metaTitle: "Robotic Vision & Machine Vision Systems | Coordinatez Technology",
+    metaTitle: "Robotic Vision & Machine Vision Systems | Coordinatez",
     metaDescription:
-      "Robotic vision and perception systems — bin-picking pose estimation, surface defect detection, and inspection, with accuracy measured on your parts and defined low-confidence behavior.",
+      "Robotic vision and perception — bin-picking pose estimation, surface defect detection, and inspection, with accuracy measured on your own parts.",
     keywords: [
       "robotic vision systems",
       "machine vision inspection",
@@ -989,7 +989,7 @@ export const services: Service[] = [
     category: "Robotics",
     description:
       "The software layer over warehouse robots — fleet orchestration, WMS and ERP integration, and the operations visibility that shows whether the fleet is earning its cost.",
-    metaTitle: "Warehouse Robotics & AMR Fleet Software | Coordinatez Technology",
+    metaTitle: "Warehouse Robotics & AMR Fleet Software | Coordinatez",
     metaDescription:
       "Warehouse robotics software — AMR fleet orchestration, WMS and ERP integration, task allocation tuned to your order profile, and throughput reporting you can act on.",
     keywords: [

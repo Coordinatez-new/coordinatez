@@ -14,7 +14,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "About Us — An IT Services & AI Solutions Company",
   description:
-    "Coordinatez is an IT services and AI solutions company headquartered in Chicago with its own development center in Gujarat, India. Learn who we are, how we work, the values we work by, and how our global offices fit together.",
+    "Coordinatez is an IT services and AI solutions company headquartered in Chicago, with its development center in Gujarat, India. How we work, and why.",
   path: "/about",
   keywords: [
     "about Coordinatez",

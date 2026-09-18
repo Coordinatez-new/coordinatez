@@ -13,7 +13,7 @@ import { industries } from "@/data/industries";
 export const metadata: Metadata = buildMetadata({
   title: "Industries We Serve — Software & AI Across Sectors",
   description:
-    "Coordinatez builds software and AI for the sectors where it changes outcomes — manufacturing, logistics, retail & e-commerce, healthcare, finance & professional services, and construction & real estate.",
+    "Software and AI for manufacturing, logistics, retail and e-commerce, healthcare, finance, and construction — built for how each sector actually works.",
   path: "/industries",
   keywords: [
     "industries served",

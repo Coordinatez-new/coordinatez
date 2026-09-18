@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "How Coordinatez collects, uses, and protects personal information across coordinatez.com, our WhatsApp business line, and our applications that connect to Google and YouTube — including the Google API Services Limited Use disclosure, the scopes we request, contact and career forms, our AI assistant, analytics, third-party processors, retention, how to delete your data, and your rights.",
+    "How Coordinatez collects, uses, and protects personal data across our website, WhatsApp, and Google and YouTube integrations — and what your rights are.",
   path: "/privacy-policy",
   noIndex: false,
 });

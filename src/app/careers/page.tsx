@@ -15,7 +15,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Careers — Build Software & AI That Ships",
   description:
-    "Careers at Coordinatez: engineering, AI, and business operations roles across our Chicago headquarters and our development center in Gujarat, India. See open positions or introduce yourself.",
+    "Engineering, AI, and business operations roles at Coordinatez, across our Chicago headquarters and our development center in Gujarat, India.",
   path: "/careers",
   keywords: [
     "Coordinatez careers",

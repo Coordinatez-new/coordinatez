@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Terms & Conditions",
   description:
-    "Terms and conditions governing the use of coordinatez.com and the Coordinatez applications — the services we provide, acceptable use, intellectual property, informational nature of content, disclaimer of warranties, limitation of liability, termination, and governing law (Illinois, USA).",
+    "Terms governing use of coordinatez.com and Coordinatez applications — acceptable use, automated replies, liability, termination, and governing law.",
   path: "/terms-and-conditions",
 });
 

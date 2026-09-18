@@ -13,9 +13,9 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Global Presence — Chicago Headquarters & India Development Center",
+  title: "Global Presence — Chicago HQ & India Development Center",
   description:
-    "Coordinatez operates from three locations: our global headquarters in Chicago, our technology & development center in Gujarat, India, and our Asia-Pacific office in Harris Park, Australia — covering most of the global business day.",
+    "Coordinatez operates from Chicago, a development center in Gujarat, India, and an Asia-Pacific office in Australia — covering most of the business day.",
   path: "/global-presence",
   keywords: [
     "Coordinatez locations",

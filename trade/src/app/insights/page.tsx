@@ -11,7 +11,7 @@ import { insights } from "@/data/insights";
 export const metadata: Metadata = buildMetadata({
   title: "Insights — Writing on Metal, Scrap & International Trade",
   description:
-    "Practical writing on international trade from the Coordinatez Global Trade team — field notes on scrap metal export, aluminium and copper grades, specifications, and the US–India corridor.",
+    "Practical writing on international trade from the Coordinatez Global Trade team — field notes on scrap grades, export documentation, and trade corridors.",
   path: "/insights",
   keywords: [
     "Coordinatez Global Trade insights",
