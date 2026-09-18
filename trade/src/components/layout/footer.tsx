@@ -102,8 +102,8 @@ export function Footer() {
             {
               label: hq.label,
               company: hq.company,
-              // Footer shows only the city/region line (no street address).
-              lines: [hq.addressLines[hq.addressLines.length - 1]],
+              // Headquarters shows the full postal address.
+              lines: [...hq.addressLines],
               coords: hq.coordinates.label,
               contact: siteConfig.phone.us,
             },
