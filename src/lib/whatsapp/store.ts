@@ -11,13 +11,8 @@ export type Turn = {
   wamid?: string;
 };
 
-export type Lead = {
-  name?: string;
-  company?: string;
-  email?: string;
-  country?: string;
-  need?: string;
-};
+// Free-form qualification fields (name, company, role, material, grade, quantity, ...).
+export type Lead = Record<string, string>;
 
 export type Conversation = {
   businessId: BusinessId;
@@ -25,6 +20,9 @@ export type Conversation = {
   profileName?: string;
   handoff: "ai" | "human";
   escalation?: { reason: string; at: string };
+  pinned?: { at: string; reason: string };
+  leadRef?: string; // e.g. CZ-SM-0023 from the email click-to-chat link
+  qualifiedAt?: string; // trade: material + quantity + location collected, owner alerted
   optedOut?: boolean;
   lead: Lead;
   turns: Turn[];

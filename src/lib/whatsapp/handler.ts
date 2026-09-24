@@ -2,7 +2,7 @@
 import { ownerNumbers, tenantForPhoneNumberId, type Tenant } from "./config";
 import { markReadWithTyping, sendText, GraphError } from "./graph";
 import { loadConversation, updateConversation, listConversations, type Conversation } from "./store";
-import { generateReply, FALLBACK_REPLY, type AgentResult } from "./agent";
+import { generateReply, fallbackReply, type AgentResult } from "./agent";
 
 type WaMessage = {
   from: string;
@@ -95,6 +95,9 @@ const HELP = [
   "#reply <number> <message> : reply as the team (pauses AI for them)",
   "#takeover <number> : pause AI for that customer",
   "#ai <number> : hand the customer back to the AI",
+  "#pinned : pinned conversations waiting for your review",
+  "#show <number> : last messages and collected details",
+  "#unpin <number> : mark a pinned conversation as reviewed",
   "Messages without # are treated as a normal customer chat, so you can test the agent.",
 ].join("\n");
 
@@ -144,6 +147,55 @@ async function handleOwnerCommand(tenant: Tenant, owner: string, text: string) {
     return;
   }
 
+  if (cmd === "#pinned") {
+    const ids = (await listConversations(tenant.businessId)).slice(0, 80);
+    const rows: string[] = [];
+    for (const id of ids) {
+      const c = await loadConversation(tenant.businessId, id);
+      if (!c.pinned) continue;
+      const details = ["role", "material", "grade", "quantity", "location"]
+        .map((k) => c.lead[k])
+        .filter(Boolean)
+        .join(", ");
+      rows.push(`- ${label(c)}${c.leadRef ? ` [${c.leadRef}]` : ""}: ${details || c.pinned.reason}`);
+    }
+    await reply(rows.length ? `*Pinned (${rows.length})*\n${rows.join("\n")}\n\n#show <number> for details` : "Nothing pinned.");
+    return;
+  }
+
+  if (cmd === "#show") {
+    if (!number) {
+      await reply("Usage: #show <number>");
+      return;
+    }
+    const c = await loadConversation(tenant.businessId, number);
+    if (!c.turns.length) {
+      await reply(`No conversation with +${number}.`);
+      return;
+    }
+    const lead = Object.entries(c.lead).map(([k, v]) => `${k}: ${v}`).join("\n");
+    const last = c.turns
+      .slice(-8)
+      .map((t) => `${t.role === "user" ? "Them" : t.role === "human" ? "Team" : "AI"}: ${t.text.slice(0, 300)}`)
+      .join("\n");
+    await reply(
+      `*${label(c)}*${c.leadRef ? ` [${c.leadRef}]` : ""}\nMode: ${c.handoff === "ai" ? "AI" : "human"}${c.pinned ? " | pinned" : ""}\n\n${lead || "No details collected yet."}\n\n${last}`.slice(0, 4000)
+    );
+    return;
+  }
+
+  if (cmd === "#unpin") {
+    if (!number) {
+      await reply("Usage: #unpin <number>");
+      return;
+    }
+    await updateConversation(tenant.businessId, number, (c) => {
+      delete c.pinned;
+    });
+    await reply(`Unpinned +${number}.`);
+    return;
+  }
+
   if (cmd === "#takeover" || cmd === "#ai") {
     if (!number) {
       await reply(`Usage: ${cmd} <number>`);
@@ -183,8 +235,21 @@ async function handleInbound(tenant: Tenant, m: WaMessage, profileName?: string)
     if (profileName) c.profileName = profileName;
     c.lastInboundAt = now;
     c.turns.push({ role: "user", text, at: now, wamid: m.id });
+    const ref = text.match(/\bCZ-[A-Z]{2}-\d{3,5}\b/i)?.[0]?.toUpperCase();
+    if (ref && !c.leadRef) c.leadRef = ref;
+    if (tenant.pinReplies && !c.pinned) c.pinned = { at: now, reason: "New response" };
   });
   if (!convo) return;
+
+  // Trade number: every new conversation is pinned and the owner is told once, so
+  // each supplier/buyer response gets a manual look. Later messages stay visible
+  // through #pinned / #show without an alert per message.
+  if (tenant.pinReplies && convo.pinned?.at === now) {
+    await notifyOwners(
+      tenant,
+      `📌 *New WhatsApp response: ${tenant.displayName}*\nFrom: ${label(convo)}${convo.leadRef ? ` [${convo.leadRef}]` : ""}\n"${text.slice(0, 400)}"\n\nThe AI is replying. #show ${from} to review, #takeover ${from} to answer yourself.`
+    );
+  }
 
   await markReadWithTyping(tenant.phoneNumberId, m.id);
 
@@ -229,7 +294,7 @@ async function handleInbound(tenant: Tenant, m: WaMessage, profileName?: string)
   } catch (error) {
     console.error("WhatsApp: AI generation failed:", (error as Error).message);
     result = {
-      reply: FALLBACK_REPLY,
+      reply: fallbackReply(tenant),
       escalate: true,
       escalationReason: "AI error, needs a human reply",
       lead: {},
@@ -237,6 +302,7 @@ async function handleInbound(tenant: Tenant, m: WaMessage, profileName?: string)
   }
 
   const wamid = await safeSend(tenant, from, result.reply);
+  let newlyQualified = false;
   const saved = await updateConversation(tenant.businessId, from, (c) => {
     c.turns.push({
       role: "assistant",
@@ -246,7 +312,7 @@ async function handleInbound(tenant: Tenant, m: WaMessage, profileName?: string)
     });
     for (const [k, v] of Object.entries(result.lead)) {
       if (typeof v === "string" && v.trim()) {
-        (c.lead as Record<string, string>)[k] = v.trim().slice(0, 200);
+        c.lead[k] = v.trim().slice(0, 200);
       }
     }
     if (result.escalate && c.handoff === "ai") {
@@ -256,7 +322,19 @@ async function handleInbound(tenant: Tenant, m: WaMessage, profileName?: string)
         at: new Date().toISOString(),
       };
     }
+    if (tenant.pinReplies && !c.qualifiedAt && c.lead.material && c.lead.quantity && (c.lead.location || c.lead.destination)) {
+      c.qualifiedAt = new Date().toISOString();
+      newlyQualified = true;
+    }
   });
+
+  if (newlyQualified && saved && !result.escalate) {
+    const details = Object.entries(saved.lead).map(([k, v]) => `${k}: ${v}`).join("\n");
+    await notifyOwners(
+      tenant,
+      `✅ *Qualified ${saved.lead.role || "lead"}: ${tenant.displayName}*\n${label(saved)}${saved.leadRef ? ` [${saved.leadRef}]` : ""}\n${details}\n\nAI keeps collecting details. #takeover ${from} to make an offer yourself.`
+    );
+  }
 
   if (result.escalate && saved) {
     const lead = Object.entries(saved.lead)

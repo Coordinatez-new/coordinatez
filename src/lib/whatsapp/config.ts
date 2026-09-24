@@ -4,30 +4,42 @@
 // else — decides which business, prompt, and conversation store handle the
 // message. An id that is not registered here is ignored, so a number added in
 // WhatsApp Manager can never be answered by the wrong business by accident.
-//
-// Only the USA IT business (Coordinatez) is live today. The scrap-trade and
-// India IT agents plug in here later with their own knowledge and prompts.
 
-export type BusinessId = "usa_it";
+export type BusinessId = "usa_it" | "scrap_trade";
 
 export type Tenant = {
   businessId: BusinessId;
   displayName: string;
   phoneNumberId: string;
   timezone: string;
+  // Pin every conversation where the counterpart writes and alert staff, so the
+  // owner can review each response by hand (trade number).
+  pinReplies: boolean;
 };
 
 export const GRAPH_VERSION = process.env.WHATSAPP_GRAPH_VERSION || "v24.0";
 
 export function getTenants(): Tenant[] {
   const tenants: Tenant[] = [];
+  const trade = process.env.WHATSAPP_SCRAP_TRADE_PHONE_NUMBER_ID?.trim();
+  if (trade) {
+    tenants.push({
+      businessId: "scrap_trade",
+      displayName: "Coordinatez Global Trade",
+      phoneNumberId: trade,
+      timezone: "America/Chicago",
+      pinReplies: true,
+    });
+  }
   const usaIt = process.env.WHATSAPP_USA_IT_PHONE_NUMBER_ID?.trim();
-  if (usaIt) {
+  // One number can only ever belong to one business.
+  if (usaIt && usaIt !== trade) {
     tenants.push({
       businessId: "usa_it",
       displayName: "Coordinatez",
       phoneNumberId: usaIt,
       timezone: "America/Chicago",
+      pinReplies: false,
     });
   }
   return tenants;
@@ -52,6 +64,7 @@ export function isConfigured() {
     verifyToken: Boolean(process.env.WHATSAPP_VERIFY_TOKEN),
     appSecret: Boolean(process.env.WHATSAPP_APP_SECRET),
     accessToken: Boolean(process.env.WHATSAPP_ACCESS_TOKEN),
+    tradePhoneNumberId: Boolean(process.env.WHATSAPP_SCRAP_TRADE_PHONE_NUMBER_ID),
     usaItPhoneNumberId: Boolean(process.env.WHATSAPP_USA_IT_PHONE_NUMBER_ID),
     ownerNumbers: ownerNumbers().length,
     gemini: Boolean(process.env.GEMINI_API_KEY),
