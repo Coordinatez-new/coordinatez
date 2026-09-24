@@ -99,6 +99,7 @@ const nextConfig: NextConfig = {
   // so force it into the /api/chat function's trace or deployment would omit it.
   outputFileTracingIncludes: {
     "/api/chat": ["./data/company-knowledge.md"],
+    "/api/whatsapp/webhook": ["./data/company-knowledge.md"],
   },
   // Produces a minimal, self-contained server bundle (`.next/standalone`) for the Docker
   // image (see Dockerfile). Vercel ignores this and uses its own builder either way, so it's
