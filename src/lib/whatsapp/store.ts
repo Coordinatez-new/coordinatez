@@ -47,7 +47,9 @@ async function read(pathname: string): Promise<{ convo: Conversation | null; eta
   const res = await get(pathname, { access: "private", useCache: false });
   if (!res || res.statusCode !== 200) return { convo: null };
   const text = await new Response(res.stream).text();
-  return { convo: JSON.parse(text) as Conversation, etag: res.blob.etag };
+  // Larger (compressed) blobs come back with a weak ETag (W/"..."), which ifMatch
+  // rejects every time. The strong form of the same tag is accepted.
+  return { convo: JSON.parse(text) as Conversation, etag: res.blob.etag.replace(/^W\//, "") };
 }
 
 export async function loadConversation(businessId: BusinessId, waId: string): Promise<Conversation> {
