@@ -1,6 +1,7 @@
 // Server-only. Minimal WhatsApp Cloud API client (plain Graph API HTTPS calls;
 // Meta's official Node SDK is archived).
 import { GRAPH_VERSION } from "./config";
+import { getAccessToken } from "./token";
 
 export class GraphError extends Error {
   constructor(
@@ -13,8 +14,12 @@ export class GraphError extends Error {
 }
 
 async function graphPost(path: string, body: unknown): Promise<unknown> {
-  const token = process.env.WHATSAPP_ACCESS_TOKEN;
-  if (!token) throw new GraphError("WHATSAPP_ACCESS_TOKEN is not set", 500);
+  let token: string;
+  try {
+    token = await getAccessToken();
+  } catch (error) {
+    throw new GraphError((error as Error).message, 500);
+  }
   const res = await fetch(`https://graph.facebook.com/${GRAPH_VERSION}/${path}`, {
     method: "POST",
     headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },

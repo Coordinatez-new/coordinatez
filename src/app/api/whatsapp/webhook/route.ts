@@ -2,6 +2,7 @@ import { after, NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { GRAPH_VERSION, getTenants, isConfigured } from "@/lib/whatsapp/config";
 import { processWebhook, type WebhookPayload } from "@/lib/whatsapp/handler";
+import { exchangeToken, getAccessToken, tokenStatus } from "@/lib/whatsapp/token";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -16,13 +17,34 @@ export async function GET(request: Request) {
 
   // Staff diagnostic: ?health=1 with header x-wa-key = verify token. Returns Meta's
   // health status for each configured number (why sends are blocked, if they are).
-  if (params.get("health")) {
+  const staff = () => {
     const key = request.headers.get("x-wa-key");
-    if (!process.env.WHATSAPP_VERIFY_TOKEN || key !== process.env.WHATSAPP_VERIFY_TOKEN) {
-      return new Response("Forbidden", { status: 403 });
+    return Boolean(process.env.WHATSAPP_VERIFY_TOKEN) && key === process.env.WHATSAPP_VERIFY_TOKEN;
+  };
+
+  // Staff: ?exchange=1 turns the (fresh, short-lived) env token into a ~60-day token
+  // stored privately in Blob. Returns only the expiry, never the token.
+  if (params.get("exchange")) {
+    if (!staff()) return new Response("Forbidden", { status: 403 });
+    const envToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    if (!envToken) return NextResponse.json({ error: "WHATSAPP_ACCESS_TOKEN is not set" }, { status: 400 });
+    try {
+      const r = await exchangeToken(envToken, "exchange of env token");
+      return NextResponse.json({ ok: true, ...r });
+    } catch (error) {
+      return NextResponse.json({ ok: false, error: (error as Error).message }, { status: 502 });
     }
-    const token = process.env.WHATSAPP_ACCESS_TOKEN;
-    const out: Record<string, unknown> = {};
+  }
+
+  if (params.get("health")) {
+    if (!staff()) return new Response("Forbidden", { status: 403 });
+    let token = "";
+    try {
+      token = await getAccessToken();
+    } catch {
+      token = "";
+    }
+    const out: Record<string, unknown> = { token: await tokenStatus() };
     for (const t of getTenants()) {
       const res = await fetch(
         `https://graph.facebook.com/${GRAPH_VERSION}/${t.phoneNumberId}?fields=health_status,status,quality_rating,verified_name,display_phone_number,name_status,code_verification_status,account_mode,throughput`,
