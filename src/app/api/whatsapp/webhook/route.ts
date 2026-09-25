@@ -52,6 +52,15 @@ export async function GET(request: Request) {
       );
       out[t.businessId] = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
     }
+    // WABA-level review/ban state (why sends can fail with 131031 while the number looks healthy).
+    const waba = params.get("waba") || process.env.WHATSAPP_WABA_ID;
+    if (waba && /^\d+$/.test(waba)) {
+      const res = await fetch(
+        `https://graph.facebook.com/${GRAPH_VERSION}/${waba}?fields=name,status,account_review_status,business_verification_status,ownership_type,health_status,primary_business_location,country`,
+        { headers: { authorization: `Bearer ${token}` } }
+      );
+      out.waba = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+    }
     return NextResponse.json(out);
   }
 
